@@ -1,0 +1,249 @@
+﻿<Window x:Class="NLH.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NLH"
+        mc:Ignorable="d"
+        Title="Accueil" Loaded="Window_Loaded" Height="900" Width="1600" MinWidth="1100" 
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+
+
+
+
+    <Grid Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="741*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Image Source="img/mainImg.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,-14,-0.4,-14" Width="auto" Height="900" >
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="img/mainImg.jpg" Opacity="0.7" Stretch="Uniform"/>
+            </Image.OpacityMask>
+        </Image>
+        <Rectangle Fill="#7F00C5FF" HorizontalAlignment="Center" Height="65" Margin="-3,0,-3.4,0"  Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="1600" Grid.ColumnSpan="2"/>
+
+        <Label Content="" HorizontalAlignment="Left" Margin="12,8,0,0" VerticalAlignment="Top" Width="50" Height="50">
+            <Label.Background>
+                <ImageBrush ImageSource="img/icon.png" Stretch="Uniform"/>
+            </Label.Background>
+        </Label>
+        <Label Content="Nothern Lights Hospital" HorizontalAlignment="Left" Margin="70,1,0,0" VerticalAlignment="Top" FontSize="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="White"  FontFamily="Segoe UI Light" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Right" Height="23" Margin="0,20,422.6,0"  VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+        <PasswordBox x:Name="txtMotPasse" HorizontalAlignment="Right" Height="23" Margin="0,20,222.6,0"  VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+
+        <Label Content="Utilisateur" Grid.Column="1" HorizontalAlignment="Right" Margin="0,-1,429,0" VerticalAlignment="Top" Width="174" Height="26" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Mot de pass" Grid.Column="1" HorizontalAlignment="Right" Margin="0,-1,228,0" VerticalAlignment="Top" Width="174" Height="26" Foreground="White" FontWeight="Bold"/>
+
+
+        <Button Content="_Quitter" HorizontalAlignment="Right" Margin="0,20,20.6,0" VerticalAlignment="Top" Width="74" Click="BQuitter_Click" Grid.Column="1"/>
+        <Button x:Name="btnOk" Content="Login" HorizontalAlignment="Right" Margin="0,20,121.6,0" VerticalAlignment="Top" Width="74"
+                Command="{Binding Psw}" CommandParameter="{Binding ElementName=txtMotPasse}" IsDefault="True" Click="BtnOk_Click" RenderTransformOrigin="-0.411,0.648" Grid.Column="1"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="678,260,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" Grid.Column="1"/>
+
+        <!-- Liste Admissions -->
+        <Canvas Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+
+            <!--CANVAS PREPOSE-->
+            <Canvas x:Name="canvasPrepose" Visibility="Hidden">
+                <Label Content="Prepose" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Canvas.Left="443" Canvas.Top="15"/>
+
+                <Label Content="Liste des Admissions" HorizontalAlignment="Left" Margin="235,110,0,0" VerticalAlignment="Top" FontSize="20"/>
+                <DataGrid x:Name="dataGridAdmissions" AlternatingRowBackground="#FFB1DEB1" RowBackground="#FFEB5E39" Width="500" Height="400" Canvas.Left="220" Canvas.Top="152" />
+
+                <!-- -->
+
+
+                <!--Button Search Patient-->
+                <Rectangle x:Name="btnRecherche" HorizontalAlignment="Left" Height="100" Margin="22,110,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnRecherchePat_MouseDown" Cursor="Hand" MouseEnter="BtnRecherchePat_MouseEnter" MouseLeave="BtnRecherchePat_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0.3"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="" HorizontalAlignment="Left" Margin="41,123,0,0" VerticalAlignment="Top" Width="60" Height="60" Foreground="Black">
+                    <Label.Background>
+                        <ImageBrush ImageSource="img/search.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="Recherche" HorizontalAlignment="Left" Margin="38,182,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+                <Rectangle x:Name="btnRecherchePat" HorizontalAlignment="Left" Height="100" Margin="22,110,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnRecherchePat_MouseDown" Cursor="Hand" MouseEnter="BtnRecherchePat_MouseEnter" MouseLeave="BtnRecherchePat_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <!--Button Add Patient-->
+                <Rectangle x:Name="btnAdd" HorizontalAlignment="Left" Height="100" Margin="22,241,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnRecherchePat_MouseDown" Cursor="Hand" MouseEnter="BtnRecherchePat_MouseEnter" MouseLeave="BtnRecherchePat_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0.3"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="" HorizontalAlignment="Left" Margin="41,254,0,0" VerticalAlignment="Top" Width="60" Height="60" Foreground="Black">
+                    <Label.Background>
+                        <ImageBrush ImageSource="img/add.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="Ajouter Patient" HorizontalAlignment="Left" Margin="45,313,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+                <Rectangle x:Name="btnAddPat" HorizontalAlignment="Left" Height="100" Margin="22,241,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25"  Cursor="Hand" MouseDown="BtnAddPat_MouseDown" MouseEnter="BtnAddPat_MouseEnter" MouseLeave="BtnAddPat_MouseLeave" >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <!--Button Admissions-->
+                <Rectangle x:Name="btnAdmission" HorizontalAlignment="Left" Height="100" Margin="22,372,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25"  Cursor="Hand" >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0.3"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="" HorizontalAlignment="Left" Margin="41,384,0,0" VerticalAlignment="Top" Width="60" Height="60" Foreground="Black">
+                    <Label.Background>
+                        <ImageBrush ImageSource="img/admission.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="Admission" HorizontalAlignment="Left" Margin="36,444,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+                <Rectangle x:Name="btnAdmissionPat" HorizontalAlignment="Left" Height="100" Margin="22,372,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25"  Cursor="Hand" MouseDown="BtnAdmissionPat_MouseDown" MouseEnter="BtnAdmissionPat_MouseEnter" MouseLeave="BtnAdmissionPat_MouseLeave"   >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+
+
+
+
+                <!--Button Liste Admissions-->
+                <Rectangle x:Name="btnListeAdmissions" HorizontalAlignment="Left" Height="100" Margin="22,500,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25"  Cursor="Hand" >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0.3"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="" HorizontalAlignment="Left" Margin="41,512,0,0" VerticalAlignment="Top" Width="60" Height="60" Foreground="Black">
+                    <Label.Background>
+                        <ImageBrush ImageSource="img/listAdmissions.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="Refrachir" HorizontalAlignment="Left" Margin="38,572,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+                <Rectangle x:Name="btnListeAdmissionsPat" HorizontalAlignment="Left" Height="100" Margin="22,500,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25"  Cursor="Hand" MouseDown="BtnListeAdmissionsPat_MouseDown" MouseEnter="BtnListeAdmissionsPat_MouseEnter" MouseLeave="BtnListeAdmissionsPat_MouseLeave"    >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Canvas>
+
+
+            <!--CANVAS ADMIN-->
+            <Canvas x:Name="canvasAdmin" Visibility="Hidden" >
+                <Label Content="Administrateur" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Canvas.Left="443" Canvas.Top="16"/>
+
+                <!--Button Add Medecin-->
+                <Rectangle x:Name="btnAddMed" HorizontalAlignment="Left" Height="100" Margin="22,110,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnRecherchePat_MouseDown" Cursor="Hand" MouseEnter="BtnRecherchePat_MouseEnter" MouseLeave="BtnRecherchePat_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0.3"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="" HorizontalAlignment="Left" Margin="41,123,0,0" VerticalAlignment="Top" Width="60" Height="60" Foreground="Black">
+                    <Label.Background>
+                        <ImageBrush ImageSource="img/add.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="Ajouter medecin" HorizontalAlignment="Left" Margin="20,182,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+                <Rectangle x:Name="btnAddMedAdmin" HorizontalAlignment="Left" Height="100" Margin="22,110,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnAddMedAdmin_MouseDown" MouseEnter="BtnAddMedAdmin_MouseEnter" MouseLeave="BtnAddMedAdmin_MouseLeave" >
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <!--Button Edit Medecin-->
+                <Rectangle x:Name="btnEditMed" HorizontalAlignment="Left" Height="100" Margin="22,250,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnRecherchePat_MouseDown" Cursor="Hand" MouseEnter="BtnRecherchePat_MouseEnter" MouseLeave="BtnRecherchePat_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0.3"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="" HorizontalAlignment="Left" Margin="41,260,0,0" VerticalAlignment="Top" Width="60" Height="60" Foreground="Black">
+                    <Label.Background>
+                        <ImageBrush ImageSource="img/edit.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="Modifier medecin" HorizontalAlignment="Left" Margin="20,320,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+                <Rectangle x:Name="btnEditMedAdmin" HorizontalAlignment="Left" Height="100" Margin="22,250,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnEditMedAdmin_MouseDown" MouseEnter="BtnEditMedAdmin_MouseEnter" MouseLeave="BtnEditMedAdmin_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <!--Button Supprimer Medecin-->
+                <Rectangle x:Name="btnRemoveMed" HorizontalAlignment="Left" Height="100" Margin="22,400,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnRecherchePat_MouseDown" Cursor="Hand" MouseEnter="BtnRecherchePat_MouseEnter" MouseLeave="BtnRecherchePat_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0.3"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="" HorizontalAlignment="Left" Margin="41,410,0,0" VerticalAlignment="Top" Width="60" Height="60" Foreground="Black">
+                    <Label.Background>
+                        <ImageBrush ImageSource="img/remove.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <Label Content="Supprimer medecin" HorizontalAlignment="Left" Margin="20,470,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+                <Rectangle x:Name="btnRemoveMedAdmin" HorizontalAlignment="Left" Height="100" Margin="22,400,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="100" RadiusX="25" RadiusY="25" MouseDown="BtnRemoveMedAdmin_MouseDown" MouseEnter="BtnRemoveMedAdmin_MouseEnter" MouseLeave="BtnRemoveMedAdmin_MouseLeave">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#FF00C5FF" Opacity="0"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label x:Name="msgErrorSupp" Content="Medecin a un/des patients" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Visibility="Hidden" Foreground="Red" Canvas.Left="19" Canvas.Top="500"/>
+                <Label Content="Liste des IdMedecins" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Width="463" FontSize="36" Canvas.Left="189" Canvas.Top="125"/>
+                <ListBox Height="296" HorizontalAlignment="Left"
+            x:Name="lstMedecin" IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}"
+            DisplayMemberPath="idMedecin" VerticalAlignment="Top" Width="451" SelectionChanged="LstMedecin_SelectionChanged" Grid.Column="1" Canvas.Left="188" Canvas.Top="182" />
+                <Label Content="Tableau de consultation" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" FontSize="36" Canvas.Left="695" Canvas.Top="131"/>
+                <DataGrid x:Name="dataGridMed" HorizontalAlignment="Left" Height="288" VerticalAlignment="Top" Width="397" Grid.Column="1" Canvas.Left="696" Canvas.Top="187"/>
+
+
+            </Canvas>
+
+
+            <!--CANVAS MEDECIN-->
+            <Canvas x:Name="canvasMedecin" Visibility="Hidden" >
+                <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="250" RadiusY="25" RadiusX="25" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="541" Canvas.Left="86" Canvas.Top="160">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="White" Opacity="0.7"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Label Content="Medecin" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Canvas.Left="445" Canvas.Top="16"/>
+                <Label Content="Selectionner un admission" Height="25" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="148" FontFamily="Script MT" Foreground="#FF137CFB" Background="{x:Null}" FontStyle="Italic" Canvas.Left="180" Canvas.Top="186"/>
+                <Label Content="Entrer une date et selectionner un lit" Height="24" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="208" FontFamily="Script MT" Foreground="#FF137CFB" Background="{x:Null}" FontStyle="Italic" Canvas.Left="387" Canvas.Top="186"/>
+                <Label Content="Id Admission:" Height="25" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="80" FontFamily="Script MT" Foreground="Black" Canvas.Left="108" Canvas.Top="215"/>
+                <ComboBox Height="23" HorizontalAlignment="Left" Name="cb_idAdmission" VerticalAlignment="Top" Width="113" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="idAdmission" SelectionChanged="cb_nss_SelectionChanged" FontFamily="Script MT" FontSize="13" Canvas.Left="216" Canvas.Top="215"/>
+                <Label Content="NSS Patient:" Height="25" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="88" FontFamily="Script MT" Foreground="Black" Canvas.Left="115" Canvas.Top="253"/>
+                <TextBox Height="23" HorizontalAlignment="Left"   Name="nss" VerticalAlignment="Top" Width="113" FontFamily="Script MT" FontSize="13" Canvas.Left="215" Canvas.Top="255" />
+                <Label Content="Date admission:" Height="25" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="105" FontFamily="Script MT" Foreground="Black" Canvas.Left="106" Canvas.Top="308"/>
+                <DatePicker Height="23" HorizontalAlignment="Left" Name="dateAdmiss" VerticalAlignment="Top" Width="113" FontFamily="Script MT" Canvas.Left="216" Canvas.Top="310"/>
+                <Label Content="Date du conge:" Height="25" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="95" FontFamily="Script MT" Foreground="Black" Canvas.Left="371" Canvas.Top="214"/>
+                <DatePicker Height="23" HorizontalAlignment="Left" Name="dateConge" VerticalAlignment="Top" Width="113" FontFamily="Script MT" Canvas.Left="471" Canvas.Top="215"/>
+                <Label Content="Numero Lit:" Height="25" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="80" FontFamily="Script MT" Foreground="Black" Canvas.Left="123" Canvas.Top="351"/>
+                <TextBox Height="23" HorizontalAlignment="Left"   Name="numLit" VerticalAlignment="Top" Width="113" FontFamily="Script MT" FontSize="13" Canvas.Left="215" Canvas.Top="351" />
+                <Label Content="Lit du patient:" Height="25" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="80" FontFamily="Script MT" Foreground="Black" Canvas.Left="386" Canvas.Top="253"/>
+                <ComboBox Height="23" HorizontalAlignment="Left" Name="cb_Lit_Patient" VerticalAlignment="Top" Width="113" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="numLit" FontFamily="Script MT" FontSize="13" Canvas.Left="471" Canvas.Top="253"/>
+
+                <Button Content="Donner conge" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Click="BtnOk_Click" Canvas.Left="436" Canvas.Top="337" Height="41"/>
+
+
+            </Canvas>
+        </Canvas>
+        <Rectangle Grid.Column="1" HorizontalAlignment="Right" Height="103" Margin="0,77,22.6,0" RadiusY="25" RadiusX="25" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="133">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFFEFF8C" Opacity="0.7"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Content="admin, admin&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Right" Margin="0,101,61.6,0" VerticalAlignment="Top" Height="30"/>
+        <Label Content="medecin, medecin" Grid.Column="1" HorizontalAlignment="Right" Margin="0,124,38.6,0" VerticalAlignment="Top" Height="30"/>
+        <Label Content="prepose, prepose" Grid.Column="1" HorizontalAlignment="Right" Margin="0,147,41.6,0" VerticalAlignment="Top" Height="30"/>
+        <Label Content="TEST USERS :" Grid.Column="1" HorizontalAlignment="Right" Margin="0,79,60.6,0" VerticalAlignment="Top" Height="30" FontWeight="Bold"/>
+
+
+    </Grid>
+
+</Window>

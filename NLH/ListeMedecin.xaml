@@ -1,0 +1,25 @@
+﻿<Window x:Class="NLH.ListeMedecin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NLH"
+        mc:Ignorable="d"
+        Title="ListeMedecin" Height="366.102" Width="450">
+    <Grid>
+        <Label Content="ID Medecin:" Height="25" HorizontalAlignment="Left" Margin="103,58,0,0"  VerticalAlignment="Top" Width="80" FontFamily="Script MT" Foreground="Black"/>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="188,60,0,0" Name="cb_IdMed" VerticalAlignment="Top" Width="113" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" DisplayMemberPath="idMedecin" FontFamily="Script MT" FontSize="13" SelectionChanged="cb_IdMed_SelectionChanged" />
+
+        <Label Content="Nom:" Height="25" HorizontalAlignment="Left" Margin="138,121,0,0"  VerticalAlignment="Top" Width="45" FontFamily="Script MT" Foreground="Black"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="188,123,0,0" Name="nom" VerticalAlignment="Top" Width="113" FontFamily="Script MT"/>
+
+        <Label Content="Prenom:" Height="25" HorizontalAlignment="Left" Margin="121,161,0,0"  VerticalAlignment="Top" Width="62" FontFamily="Script MT" Foreground="Black"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="188,161,0,0" Name="prenom" VerticalAlignment="Top" Width="113" FontFamily="Script MT"/>
+
+        <Label Content="Specialite:" Height="25" HorizontalAlignment="Left" Margin="116,205,0,0"  VerticalAlignment="Top" Width="67" FontFamily="Script MT" Foreground="Black"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="188,207,0,0" Name="specialite" VerticalAlignment="Top" Width="113" FontFamily="Script MT"/>
+
+        <Button Content="Quitter" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Click="BQuit_Click" Margin="309,240,0,0"/>
+
+    </Grid>
+</Window>
